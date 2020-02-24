@@ -1,116 +1,41 @@
-
 <!DOCTYPE html>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta Charset="utf-8">
-	<title>PHP</title>
-	<link rel="stylesheet" href="mystyle.css">
-
-    <style>
-        @page { margin: 0px; }
-        body { margin: 0px; }
-        @font-face {
-            font-family: 'Filson';
-            font-style: normal;
-            font-weight: normal;
-            src: url(http://localhost/kartu-siswa/font/Filson-Soft.ttf) format('truetype');
-        }
-
-        body {
-            background-color: gray;
-        }
-        .bg {
-            position: fixed;
-            left: 0px;
-            top: 0px;
-            z-index: -1;
-          }
-          
-          .qr {
-            width: 150px;
-            margin-top: -30px;
-            margin-left: 45px;
-            z-index: 1;
-          }
-          table {
-            font-size: 22px;
-            margin-top: 240px;
-            margin-left: 145px;
-            z-index: 2;
-            width: 550px;
-          }
-          td {
-            line-height: 22px;
-            font-family: Filson;
-            padding-right: 40px;            
-          }
-
-    </style>
+	<title>Kartu Siswa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <?php
-        include ("qr.php");
-        
-        $nama = "Adi Saputra";
-        $nis = "1031.01.20";
-        // QR_BarCode object 
-        $qr = new QR_BarCode(); 
-        $qr->text ($nama);
-        $qr->qrCode(350,'images/'.$nama.'.png');
-        
-
-    ?>
-    <table>
-        <tr><td>Bla Bla Bla Bla</td></tr>
-        <tr><td><?php echo $nis; ?></td></tr>
-        <tr><td><?php echo $nama; ?></td></tr>
-        <tr><td>27 Desember 2003</td></tr>
-        <tr><td>Jl, Cibubur 4 Rt 004 Rw 002 No.122 bla bla  bla bla  bla bla  bla bla bla bla bla bla bla bla</td></tr>
-    </table>
-    
-    <img class="bg" src="bg.png ">
-    <img class="qr" src="images/<?php echo $nama;?>.png"/>
-    
-    
-	
-
+        <div class="container mt-5">
+            <h2>Kartu Siswa SDIT Anak Shalih Bogor <span class="badge badge-secondary"> Alhamdulillah </span></h2>
+            <form action="post.php" method="post">
+                <div class="form-group">
+                  <label for="NISN">NISN</label>
+                  <input name="nisn" type="text" class="form-control" id="NISN" placeholder="Nomor Induk Sekolah Nasional" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <label for="NIS">NIS</label>
+                  <input name="nis" type="text" class="form-control" id="NIS" placeholder="Nomor Induk Sekolah" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <label for="nama">Nama Lengkap</label>
+                  <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Siswa" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <label for="ttl">Tempat Tanggal Lahir</label>
+                  <input name="ttl" type="text" class="form-control" id="ttl" placeholder="Tempat Tanggal Lahir" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <label for="alamat">Alamat</label>
+                  <input name="alamat" type="text" class="form-control" id="alamat" placeholder="Alamat" autocomplete="off">
+                </div>
+                <input type="submit" value="Download Kartu" class="btn btn-success">
+              </form>
+        </div>
 </body>
 </html>
-
-<?php
-//<img class="qr" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=2021.1.103 Muhammad Farras Maruf&choe=UTF-8" />
-//    <img class="bg" src="bg.jpg">    
-    
-    //$html = ob_get_clean ();
-    //    
-    //// include autoloader 
-    //require_once 'dompdf/autoload.inc.php';
-    //
-    //
-    //// reference the Dompdf namespace 
-    //use Dompdf\Dompdf;
-    //
-    //
-    //// instantiate and use the dompdf class 
-    //$dompdf = new Dompdf();
-    //
-    //// (Opsional) Mengatur ukuran kertas dan orientasi kertas
-    //$setpaper = array(0,0,153.45,243);
-    //$dompdf->setPaper($setpaper,"landscape");
-    //
-    //
-    //$dompdf->loadHtml($html);
-    //
-    //$dompdf->set_option( 'dpi' , '300' );
-    //// Render the HTML as PDF 
-    //$dompdf->render();
-    //
-    //
-    //// Output the generated PDF to Browser 
-    //$dompdf->stream();
-    //
-    ////send to filemanager
-    //$output = $dompdf->output();
-
-?>
