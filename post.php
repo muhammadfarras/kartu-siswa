@@ -1,6 +1,7 @@
-
+<?php
+    ob_start();
+?>
 <!DOCTYPE html>
-    <!DOCTYPE html>
 <html>
 <head>
 	<meta Charset="utf-8">
@@ -29,13 +30,13 @@
           }
           
           .qr {
-            width: 170px;
+            width: 200px;
             margin-left: 45px;
-            margin-top: 270px;
+            margin-top: 240px;
             z-index: 4;
           }
           table {
-            margin-top: -200px;
+            margin-top: -215px;
             font-size: 22px;
             margin-left: 145px;
             z-index: 2;
@@ -120,7 +121,7 @@
         
         
         // Output the generated PDF to Browser 
-        $dompdf->stream();
+        $dompdf->stream("$nama.pdf");
         
         //send to filemanager
         $output = $dompdf->output();
