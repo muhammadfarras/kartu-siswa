@@ -73,7 +73,7 @@
         
 
     ?>
-    <img class="bg" src="bg-3.png ">
+    <img class="bg" src="bg-2.png ">
     <img class="qr" src="images/<?php echo $nis." ".$nama;?>.png"/>
     <table>
         <tr><td><?php echo $nisn; ?></td></tr>
